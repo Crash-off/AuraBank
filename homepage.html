@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AuraBank — Acesso e Cadastro</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen flex items-center justify-center p-4">
+
+  <div class="w-full max-w-md bg-slate-900 border border-slate-800 rounded-2xl p-8 shadow-2xl">
+    <!-- Logo -->
+    <div class="text-center mb-8">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 font-bold text-xl mb-3">
+        A
+      </div>
+      <h1 class="text-2xl font-bold tracking-tight">AuraBank</h1>
+      <p class="text-sm text-slate-400 mt-1">Seu banco digital simples e direto</p>
+    </div>
+
+    <!-- Abas de Navegação -->
+    <div class="grid grid-cols-2 gap-2 p-1 bg-slate-950 rounded-xl mb-6 border border-slate-800">
+      <button type="button" id="tab-cadastro" onclick="mostrarAba('cadastro')"
+        class="py-2 text-sm font-medium rounded-lg bg-emerald-500 text-slate-950 transition">
+        Criar Conta
+      </button>
+      <button type="button" id="tab-login" onclick="mostrarAba('login')"
+        class="py-2 text-sm font-medium rounded-lg text-slate-400 hover:text-white transition">
+        Entrar
+      </button>
+    </div>
+
+    <form id="form-cadastro" action="/cadastrar" method="POST" class="space-y-4">
+      <div>
+        <label class="block text-xs font-medium text-slate-400 mb-1">Nome Completo</label>
+        <input type="text" name="nome" placeholder="Ex: Arthur Silva" required
+          class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-slate-400 mb-1">CPF ou E-mail</label>
+        <input type="text" name="identificador" placeholder="seu@email.com ou CPF" required
+          class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-slate-400 mb-1">Crie uma Senha</label>
+        <input type="password" name="senha" placeholder="••••••••" required
+          class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-slate-400 mb-1">Confirme a Senha</label>
+        <input type="password" name="confirmar_senha" placeholder="••••••••" required
+          class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+      </div>
+
+      <button type="submit"
+        class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold rounded-xl text-sm transition mt-2">
+        Criar Minha Conta
+      </button>
+    </form>
+
+
+    <form id="form-login" action="/login" method="POST" class="space-y-4 hidden">
+      <div>
+        <label class="block text-xs font-medium text-slate-400 mb-1">CPF ou E-mail</label>
+        <input type="text" name="identificador" placeholder="seu@email.com ou CPF" required
+          class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+      </div>
+
+      <div>
+        <label class="block text-xs font-medium text-slate-400 mb-1">Senha</label>
+        <input type="password" name="senha" placeholder="••••••••" required
+          class="w-full px-4 py-2.5 bg-slate-950 border border-slate-800 rounded-xl text-sm focus:outline-none focus:border-emerald-500">
+      </div>
+
+      <button type="submit"
+        class="w-full py-3 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold rounded-xl text-sm transition mt-2">
+        Entrar na Conta
+      </button>
+    </form>
+  </div>
+
+  <script>
+    function mostrarAba(aba) {
+      const formCadastro = document.getElementById('form-cadastro');
+      const formLogin = document.getElementById('form-login');
+      const tabCadastro = document.getElementById('tab-cadastro');
+      const tabLogin = document.getElementById('tab-login');
+
+      if (aba === 'cadastro') {
+        formCadastro.classList.remove('hidden');
+        formLogin.classList.add('hidden');
+        tabCadastro.className = 'py-2 text-sm font-medium rounded-lg bg-emerald-500 text-slate-950 transition';
+        tabLogin.className = 'py-2 text-sm font-medium rounded-lg text-slate-400 hover:text-white transition';
+      } else {
+        formLogin.classList.remove('hidden');
+        formCadastro.classList.add('hidden');
+        tabLogin.className = 'py-2 text-sm font-medium rounded-lg bg-emerald-500 text-slate-950 transition';
+        tabCadastro.className = 'py-2 text-sm font-medium rounded-lg text-slate-400 hover:text-white transition';
+      }
+    }
+  </script>
+</body>
+</html>
