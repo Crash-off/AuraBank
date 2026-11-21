@@ -10,3 +10,6 @@ AuraBank is a fictitious bank created for the purpose of working with and traini
 #Dashboard
 
 <img width="1366" height="788" alt="screencapture-a4cd-170-80-113-169-ngrok-free-app-dashboard-2026-11-21-17_29_53" src="https://github.com/user-attachments/assets/09683f41-3e3d-4e42-a03b-e16c3836ce3d" />
+
+
+Flask, SQLAlchemy, and Gemini were used to build this small project, with Gemini employed for the front-end portion.
